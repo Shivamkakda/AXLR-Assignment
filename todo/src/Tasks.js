@@ -9,8 +9,9 @@ class Tasks extends Component{
     try{
       const{data} = await getTask();
       this.setState({tasks:data});
-    }catch(err){
-      console.log(err)
+      
+    }catch(error){
+      console.log(error)
     }
   }
 
@@ -18,12 +19,12 @@ class Tasks extends Component{
     this.setState({currentTask: input.value});
   }
 
-  handleSubmit = async(e)=>{
-    e.preventDefault();
-    const mainTasks = this.state.tasks
+  handleSubmit = async()=>{
+   
+    const orignalTasks = this.state.tasks
     try {
       const{data} =await addTask({task:this.state.currentTask});
-      const tasks = mainTasks;
+      const tasks = orignalTasks;
       tasks.push(data);
       this.setState({tasks,currentTask: ""});
     } catch (error) {
@@ -32,31 +33,31 @@ class Tasks extends Component{
   }
 
   handleUpdate = async(currentTask)=>{
-    const mainTasks = this.state.tasks;
+    const orignalTasks = this.state.tasks;
     try {
-      const tasks = [...mainTasks];
+      const tasks = [...orignalTasks];
       const index = tasks.findIndex((task)=> task._id === currentTask);
       tasks[index] = {...tasks[index]};
       tasks[index].completed = !tasks[index].completed;
       this.setState({tasks});
        await updateTask(currentTask,{completed: tasks[index].completed})
     } catch (err) {
-      this.setState({tasks:mainTasks})
+      this.setState({tasks:orignalTasks})
       console.log(err)
     }
    }
 
    handleDelete = async(currentTask)=>{
-     const mainTasks = this.state.tasks;
+     const orignalTasks = this.state.tasks;
      try {
-       const tasks = mainTasks.filter(
+       const tasks = orignalTasks.filter(
          (task)=> task._id !== currentTask
        )
        this.setState({tasks});
        await deleteTask(currentTask);
 
      } catch (error) {
-       this.setState({tasks:mainTasks});
+       this.setState({tasks:orignalTasks});
        console.log(error)
      }
    }

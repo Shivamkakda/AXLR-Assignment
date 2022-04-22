@@ -1,37 +1,89 @@
 .App{
-  width: 100vw;
-  height: 50vw;
-  background-color: gray;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+  background-color: gainsboro;
+  width: 700px;
+  margin-top: 50px;
+  margin-left: 350px;
 }
 .heading{
   font-size: 22px;
   font-weight: bold;
   text-align: center;
 }
-
-.flex{
+.form{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
-.mainCont{
-  width: 500px;
-  min-height:  300px;
-  padding: 15px;
+.form input[type="text"]{
+  padding: 10px;
+  margin: 30px;
+  width: 65%;
+  border: 1px solid #eee;
+  border-radius: 6px;
 }
-.taskCont{
-  margin: 10px 0;
-  cursor: pointer;
-}
-
-.task{
-  flex-grow: 1;
-  margin-left:  10px;
-}
-
-.button{
-  height: 40px;
+.btn1{
   background-color: teal;
-  font-size: 20px;
-  color: white;
+  color: #fff;
+  border: none;
+  width: 100px;
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 30px;
+}
+.btn2{
+  border: none;
+  width: 80px;
+  height: 40px;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: green;
+  color: #eee;
+  margin-left: 15px;
+}
+.btn3{
+  border: none;
+  width: 80px;
+  height: 40px;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: red;
+  color: #eee;
+  margin-left: 15px;
+}
+.taskcont{
+  display: flex;
+  flex-direction: column;
+}
+.todoItem{
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 10px;
+}
+.updateForm{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.updateInput[type="text"]{
+  padding: 10px;
+  margin: 30px;
+  width: 65%;
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
+.btn4{
+  background-color: darkcyan;
+  color: #fff;
+  border: none;
+  width: 100px;
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 30px;
 }
